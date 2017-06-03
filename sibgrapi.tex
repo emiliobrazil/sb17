@@ -347,10 +347,37 @@ Aqui
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION Introduction
 \section{Introduction}
 \label{sec:introduction}
+LiDAR is an active remote sensing technique able to collect a very dense set of points from a target.
+The method consists in emitting beams of light to the desired area and measuring the backscatter by sensor. 
+From the collected data, the three dimensional coordinates of each point are calculated. 
+The main advantage of LiDAR is it's high resolution and the impressive level of detail that this method
+offers has helped several researches in many fields, such as land-form analysis, rock formations and
+geomorphology.
 
+In almost all applications, one of the main challenges is to reconstruct the three dimensional geometry based on the point cloud. 
+The data collected with LiDAR is massive, noisy and irregular. 
+For instance, outcrops may create shadows on scanned landscapes, leading to overly dense areas, sparse areas and holes on the point cloud. 
+Those issues creates a very hard scenario for traditional reconstructions methods.
+
+In this work, we propose the use of radial basis function (RBF) to reconstruct the surface from the point cloud. 
+The scale-independent nature of this approach yields many benefits when working with irregular datasets and it is able to fill holes smoothly. 
+Also, non-interpolating approximations that allows small errors on the surface fitting can be used when the data is noisy.
+A more in depth explanation of radial basis functions is outside the scope of this work and can
+be found on Macedo et al. paper "Hermite Radial Basis Functions Implicits" \cite{Macedo20010}. 
+One important concept is that a sum of relatively simple scalar functions of specific form (called kernel) results in a more
+complex scalar function that defines a value to every point in space in such way that the set of all zero valued
+points implicitly describes a surface. By forcing the known sample points of the LiDAR data as
+zero-valued points on the RBF equations, the rest of the zero-valued points appears as a consequence
+of the kernel continuity, describing this way a surface that smoothly interpolates the original points.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION Related Work
 \section{Related Work}
 \label{sec:related_work}
 
